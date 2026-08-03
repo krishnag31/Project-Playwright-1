@@ -1,0 +1,108 @@
+{
+  "registrationTests": [
+    {
+      "title": "valid registration",
+      "emailMode": "unique",
+      "tags": ["@smoke"],
+      "data": {
+        "gender": "Male",
+        "firstname": "Krishna",
+        "lastname": "gnaga",
+        "email": "krishna@gmail.com",
+        "password": "prime@123",
+        "confirmpassword": "prime@123"
+      },
+      "expected": {
+        "type": "success",
+        "contains": "Your registration completed"
+      }
+    },
+    {
+      "title": "invalid email",
+      "tags": ["@smoke", "@regression"],
+      "data": {
+        "gender": "Female",
+        "firstname": "Test",
+        "lastname": "gnaga",
+        "email": "jhkjhj",
+        "password": "prime@123",
+        "confirmpassword": "prime@123"
+      },
+      "expected": {
+        "type": "error",
+        "contains": "Wrong email"
+      }
+    },
+    {
+      "title": "Password mismatch",
+      "tags": ["@smoke", "@regression"],
+      "data": {
+        "gender": "Female",
+        "firstname": "Test",
+        "lastname": "gnaga",
+        "email": "Krishna@gmail.com",
+        "password": "prime@123",
+        "confirmpassword": "prime@12389"
+      },
+      "expected": {
+        "type": "error",
+        "contains": "The password and confirmation password do not match."
+      }
+    },
+    {
+      "title": "No First Name",
+      "tags": [ "@regression"],
+      "data": {
+        "gender": "Female",
+        "firstname": "",
+        "lastname": "gnaga",
+        "email": "Krishna@gmail.com",
+        "password": "prime@123",
+        "confirmpassword": "prime@123"
+      },
+      "expected": {
+        "type": "error",
+        "contains": "First name is required."
+      }
+    },
+    
+    {
+      "title": "No Last name",
+      "tags": [ "@regression"],
+      "data": {
+        "gender": "Female",
+        "firstname": "Test",
+        "lastname": "",
+         "email": "Krishna@gmail.com",
+        "password": "prime@123",
+        "confirmpassword": "prime@123"
+      },
+      "expected": {
+        "type": "error",
+        "contains": "Last name is required."
+      }
+    },
+    {
+      "title": "Blank data",
+      "tags": [ "@regression"],
+      "data": {
+        "gender": "",
+        "firstname": "",
+        "lastname": "",
+        "email": "",
+        "password": "",
+        "confirmpassword": ""
+      },
+      "expected": {
+        "type": "error",
+        "contains": ["First name is required.",
+         "Last name is required." ,
+         "Email is required.",
+         "Password is required."
+         
+      ]
+      }
+    }
+    
+  ]
+}

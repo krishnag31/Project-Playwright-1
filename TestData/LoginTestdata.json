@@ -1,0 +1,82 @@
+{
+    "LoginTest": [
+        {
+            "title": "valid Login data",
+            "data": {
+                "UserEmail": "${USER_EMAIL}",
+                "UserPassword": "${USER_PASSWORD}"
+            },
+            "expected": {
+                "type": "success",
+                "contains": "${USER_EMAIL}"
+            }
+        },
+        {
+            "title": "invalid Login data give only emailid",
+            "data": {
+                "UserEmail": "krishna@gmail.com",
+                "UserPassword": ""
+            },
+            "expected": {
+                "type": "success",
+                "contains":"Login was unsuccessful. Please correct the errors and try again. The credentials provided are incorrect"
+            }
+        },
+        {
+            "title": "Invalid Login data give only password",
+            "data": {
+                "UserEmail": "",
+                "UserPassword": "Prime@123"
+            },
+            "expected": {
+                "type": "success",
+                "contains": "Login was unsuccessful. Please correct the errors and try again. No customer account found"
+            }
+        },
+        {
+            "title": "Blank data",
+            "data": {
+                "UserEmail": "",
+                "UserPassword": ""
+            },
+            "expected": {
+                "type": "success",
+                "contains": "Login was unsuccessful. Please correct the errors and try again. No customer account found"
+            }
+        },
+        {
+            "title": "InvalidEmail format- Numericdata",
+            "data": {
+                "UserEmail": "3213123",
+                "UserPassword": "Prime@123"
+            },
+            "expected": {
+                "type": "success",
+                "contains": "Please enter a valid email address."
+            }
+        },
+        {
+            "title": "InvalidEmail format-alpbets",
+            "data": {
+                "UserEmail": "asdasd",
+                "UserPassword": "Prime@123"
+            },
+            "expected": {
+                "type": "success",
+                "contains": "Please enter a valid email address."
+            }
+        },
+        {
+            "title": "InvalidEmail format-@gmail.com i.e with out name",
+            "data": {
+                "UserEmail": "@gmail.com",
+                "UserPassword": "Prime@123"
+            },
+            "expected": {
+                "type": "success",
+                "contains": "Please enter a valid email address."
+            }
+        }
+
+    ]
+}
