@@ -34,6 +34,63 @@ The framework focuses on:
 - ✅ Cross Browser Execution
 - ✅ Easy Maintenance & Scalability
 
+## 🚀 Getting Started
+
+Follow these steps to clone the repository, install the dependencies, and run the Playwright test suite locally.
+
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org) installed (v18 or higher recommended).
+
+### 2. Clone the Repository
+```bash
+git clone <YOUR_REPOSITORY_URL>
+cd <YOUR_REPOSITORY_FOLDER_NAME>
+```
+
+### 3. Install Dependencies
+Install Node modules and the required Playwright browser binaries:
+```bash
+npm install
+npx playwright install
+```
+
+### 4. Environment Configuration
+Create a `.env` file in the root directory of your project and populate it with your environment variables:
+```env
+BASE_URL=https://tricentis.com
+USER_EMAIL=your_email@example.com
+USER_PASSWORD=your_password
+```
+
+### 5. Running Tests
+Execute the scripts using the following terminal commands:
+
+* **Run all tests (Headless mode):**
+  ```bash
+  npx playwright test
+  ```
+
+* **Run tests in Headed mode (UI visible):**
+  ```bash
+  npx playwright test --headed
+  ```
+
+* **Run a specific test file:**
+  ```bash
+  npx playwright test tests/login.spec.ts
+  ```
+
+* **Run a specific project/browser:**
+  ```bash
+  npx playwright test --project=chromium
+  ```
+
+### 6. Viewing Test Reports
+After the test run completes, open the automatically generated HTML report:
+```bash
+npx playwright show-report
+```
+
 
 ### Object-Oriented Programming
 
@@ -43,3 +100,6 @@ The framework uses OOP concepts:
 - Abstraction
 - Encapsulation
 - Composition
+
+
+
